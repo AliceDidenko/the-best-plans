@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import doings from './userList'
+//import doings from './userList'
 import Sidebar from './components/Sidebar/Sidebar';
 import Main from './components/Main/Main';
 import './App.css'
@@ -14,15 +14,20 @@ const App = () => {
         setIdSelected(i);
     };
 
+    //
+    const apperDoings = a => a.map( c => (c.doings || [])).flat()
     /* doList state */
-    const [doList, setDoList] = useState(doings)
-    const StateDoing = (i, index) => {
+    const [doingCategoryList, setCardList] = useState(doCategoryList)
+    const doings = apperDoings(doingCategoryList)
+
+    const StateDoing = (title, i, index) => {
         const iObj = doings.find(obj => obj.id === i)
         iObj.status = String( Number(iObj.status) < 1? Number(iObj.status)+0.5: 0 ) 
-        console.log('newDoing', i)
+        console.log('newDoing', i, doingCategoryList.filter((elem) => elem.category === title)[0].doings)
 
         doings[i] = iObj
-        setDoList([...doings])
+        doingCategoryList.filter((elem) => elem.category === title)[0].doings[i] = iObj
+        setCardList([...doingCategoryList]) //setDoList([...doingCategoryList])
     };
     /*
     const RemoveDoing = (i) => {
@@ -36,7 +41,6 @@ const App = () => {
 */
 
     /* CARD state */
-    const [doingCategoryList, setCardList] = useState(doCategoryList)
     const [currentCard, setCurrentCard] = useState(null)
 
     /* drag and drop state CARDS */
@@ -50,9 +54,6 @@ const App = () => {
     }
     const dragOverHandler_cards = (e) => {
         e.preventDefault()
-        //e.currentTarget.classList.add('dragOver')  //e.target.style.background = 'lightgray'
-
-        //console.log('Over CARD', e.currentTarget.classList)
     }
     const dragEndHandler_cards = (e, card) => {
         //e.preventDefault() 
@@ -123,7 +124,7 @@ const App = () => {
     return(
         <div id='app'>
             <Sidebar idSelected={idSelected} changeIdSelected={changeIdSelected}/>
-            <Main    idSelected={idSelected} StateDoing={StateDoing} doList={doList} doingCategoryList={doingCategoryList}
+            <Main    idSelected={idSelected} StateDoing={StateDoing} doingCategoryList={doingCategoryList}
                                             dragStartHandler_cards={dragStartHandler_cards}
                                             dragEndHandler_cards={dragEndHandler_cards}
                                             dragLeaveHandler_cards={dragLeaveHandler_cards} 

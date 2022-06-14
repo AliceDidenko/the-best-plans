@@ -1,25 +1,21 @@
 import React from 'react'
-import './ContentRank.css'
+import './ContentState.css'
 import Check from '../Check/Check'
 
 
-const ContentRank = ({  doingCategoryList,
-                        idSelected, 
-                        style, 
-                        onclick, 
+const ContentState = ({ doingCategoryList, title, status, style,
+                        onclick,
+                        idSelected,
                         dragStartHandler, 
                         dragEndHandler, 
                         dragLeaveHandler, 
                         dragOverHandler,
                         dragDropHandler}) => {
     const List   = doingCategoryList.map( c => (c.doings || [])).flat()
-    console.log(List)
-    const sortDoList =  (idSelected === '2' && List.sort((a, b) => a.rankImpo - b.rankImpo))
-                    ||  (idSelected === '3' && List.sort((a, b) => a.rankTime - b.rankTime))
 
-    const content = sortDoList.map( (doing, index) => <div 
-        key = { idSelected +'_doing' + index + '' }
-        className ='doing rank' 
+    const content = List.filter(d => Number(d.status) === status/2).map( (doing, index) => <div 
+        key = { title +'_doing' + index + '' }
+        className ='doing state' 
         //onClick = {() => { console.log(index)}}
         draggable={true}
         onDragStart={e => dragStartHandler(e, doing)} // ухватили элемент
@@ -28,24 +24,19 @@ const ContentRank = ({  doingCategoryList,
         //onDragOver={e =>  dragOverHandler(e)} // над другим элементом
         //onDrop={e =>  dragDropHandler(e)} // отпустили и расчитываем на событие
     >
-        <div className='rankNumber'>{idSelected === '2'? doing.rankImpo: doing.rankTime}.</div>
+        <div className='rankNumber'>{index+1}.</div>
         <Check state={doing.status} onclick={()=>onclick(doing.category, doing.id, index)}/>
         <div className='text'>{doing.name}, {doing.status}</div>
-    </div>
-    )
+    </div>)
 
-    const title = idSelected === '2'? 'Дела по важности': 'Дела по срочности'
 
     return(
-        <div className='content contentRank'>
-            <div className='elem contentCategoryTtl' style={style}><h3>{title}</h3></div>
-            <div className='elem contentCategoryBox'>{content}</div>
+        <div className='content contentState'>
+            <div className='elem contentStateTtl' style={style}><h3>{title}</h3></div>
+            <div className='elem contentStateBox'>{content}</div>
         </div>
     )
 }
 
-export default ContentRank
 
-/*
-
-*/
+export default ContentState

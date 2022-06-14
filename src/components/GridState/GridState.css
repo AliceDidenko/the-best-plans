@@ -1,0 +1,9 @@
+#gridState {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+#gridState .card {
+    min-width: 12em;
+}

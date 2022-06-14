@@ -1,13 +1,41 @@
 import React from 'react'
 import './GridState.css'
-import doings from '../../userList'
-import doList from '../../doList'
+import ContentState from '../ContentState/ContentState'
 import Card from '../Card/Card'
 
 
-const GridState = () => {
+const GridState = ({ StateDoing, doingCategoryList,
+    dragStartHandler, 
+    dragEndHandler, 
+    dragLeaveHandler, 
+    dragOverHandler,
+    dragDropHandler }) => {
+
+    const body = []
+    const titles = ['Не начато', 'Приступил', 'Сделано']
+    const colors = ['--color-c1', '--color-c2', '--color-c6']
+    for( let i=0; i<3; i++) {
+        body.push(
+            <Card
+                key={'card'+i}
+                draggable={false}
+                dragStartHandler={dragStartHandler}
+                dragEndHandler={dragEndHandler}
+                dragLeaveHandler={dragLeaveHandler} 
+                dragOverHandler={dragOverHandler}
+                dragDropHandler={dragDropHandler}>
+                <ContentState    title={titles[i]}
+                                    status={i}
+                                    doingCategoryList={doingCategoryList}
+                                    onclick={StateDoing}
+                                    style = {{'backgroundColor': 'var('+colors[i]+')'}}/>
+            </Card>
+        )
+    }
+
+    console.log(body)
     return (<div id='gridState'>
-        состояние
+        {body}
     </div>)
 };
 

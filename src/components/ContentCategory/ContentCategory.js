@@ -3,21 +3,23 @@ import './ContentCategory.css'
 import Check from '../Check/Check'
 
 
-const ContentCategory = ({doList, title='Дела', style, onclick}) => {
+const ContentCategory = ({ doingCategoryList, title, style, onclick}) => {
     //console.log('render ContentCategory')
-    const content = doList.filter((elem) => elem.category === title)
+    const doingList = doingCategoryList.filter((elem) => elem.category === title)
+    const content = doingList[0].doings || []
+
     const contentElems = content.map( (doing, index) =>
         <div 
             key = { doing.name + '_in_' + title }
             className ='doing' 
             onClick = {() => { console.log(index)}}
         >
-            <Check state={doing.status} onclick={()=>onclick(doing.id, index)}/>
+            <Check state={doing.status} onclick={()=>onclick(title, doing.id, index)}/>
             {doing.name}, {doing.status}
         </div>
     )
 
-    title = (title === '')? 'Дела': title
+    //title = (title === '')? 'Дела': title
 
     return(
         <div className='content contentCategory'>

@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 import ContentCategory from '../ContentCategory/ContentCategory'
 
 
-const GridCategory = ({doList, StateDoing, doingCategoryList, 
+const GridCategory = ({ StateDoing, doingCategoryList, 
     dragStartHandler, 
     dragEndHandler, 
     dragLeaveHandler, 
@@ -23,7 +23,7 @@ const GridCategory = ({doList, StateDoing, doingCategoryList,
                 dragOverHandler={dragOverHandler}
                 dragDropHandler={dragDropHandler}>
             <ContentCategory    title={elem.category}
-                                doList={doList}
+                                doingCategoryList={doingCategoryList}
                                 onclick={StateDoing}
                                 style = {{'backgroundColor': 'var('+elem.color+')'}}/>
         </Card>

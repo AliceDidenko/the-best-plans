@@ -8,6 +8,7 @@ export default [
             {
                 id: 'id0',
                 name: 'Философия',
+                category: 'Аспа',
                 rankImpo: '12',
                 rankTime: '16',
                 deadline: '01.09.22',
@@ -16,6 +17,7 @@ export default [
             {
                 id: 'id1',
                 name: 'Английский',
+                category: 'Аспа',
                 rankImpo: '11',
                 rankTime: '15',
                 deadline: '01.09.22',
@@ -24,6 +26,7 @@ export default [
             {
                 id: 'id2',
                 name: 'Физика',
+                category: 'Аспа',
                 rankImpo: '10',
                 rankTime: '14',
                 deadline: '01.09.22',
@@ -32,6 +35,7 @@ export default [
             {
                 id: 'id5',
                 name: 'общага',
+                category: 'Аспа',
                 rankImpo: '6',
                 rankTime: '4',
                 deadline: '01.07.22',
@@ -47,6 +51,7 @@ export default [
             {
                 id: 'id4',
                 name: 'перевод Диплома',
+                category: 'Научка',
                 rankImpo: '7',
                 rankTime: '3',
                 deadline: '17.06.22',
@@ -56,6 +61,7 @@ export default [
             {
                 id: 'id15',
                 name: 'трудоустройство',
+                category: 'Научка',
                 rankImpo: '0',
                 rankTime: '2',
                 deadline: '01.07.22',
@@ -64,6 +70,7 @@ export default [
             {
                 id: 'id7',
                 name: 'общага',
+                category: 'Научка',
                 rankImpo: '4',
                 rankTime: '1',
                 deadline: '01.07.22',
@@ -72,17 +79,17 @@ export default [
         ]
     },
     {
-        category: '',
+        category: 'Дела',
         rank: '3',
         color: '--color-c2',
         doings: [
             {
                 id: 'id3',
                 name: 'Уборка',
+                category: 'Дела',
                 rankImpo: '8',
                 rankTime: '13',
                 deadline: '',
-                category: '',
                 status: '0'
             },
         ]
@@ -95,6 +102,7 @@ export default [
             {
                 id: 'id6',
                 name: 'Резюме',
+                category: 'Работа',
                 rankImpo: '5',
                 rankTime: '7',
                 deadline: '',
@@ -103,6 +111,7 @@ export default [
             {
                 id: 'id10',
                 name: 'qDoctor',
+                category: 'Работа',
                 rankImpo: '2',
                 rankTime: '8',
                 deadline: '',
@@ -111,6 +120,7 @@ export default [
             {
                 id: 'id12',
                 name: 'Планер',
+                category: 'Работа',
                 rankImpo: '1',
                 rankTime: '0',
                 deadline: '',
@@ -127,6 +137,7 @@ export default [
             {
                 id: 'id8',
                 name: 'Тараканчики',
+                category: 'Искусство',
                 rankImpo: '13',
                 rankTime: '6',
                 deadline: '',
@@ -135,6 +146,7 @@ export default [
             {
                 id: 'id9',
                 name: 'рисунок СБ',
+                category: 'Искусство',
                 rankImpo: '3',
                 rankTime: '12',
                 deadline: '',
@@ -143,6 +155,7 @@ export default [
             {
                 id: 'id11',
                 name: 'мозаика',
+                category: 'Искусство',
                 rankImpo: '14',
                 rankTime: '9',
                 deadline: '',
@@ -163,6 +176,7 @@ export default [
             {
                 id: 'id13',
                 name: 'Туалетка',
+                category: 'Покупки',
                 rankImpo: '15',
                 rankTime: '11',
                 deadline: '',
@@ -171,6 +185,7 @@ export default [
             {
                 id: 'id14',
                 name: 'тетрадь',
+                category: 'Покупки',
                 rankImpo: '9',
                 rankTime: '10',
                 deadline: '',

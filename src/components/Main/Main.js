@@ -17,20 +17,20 @@ const Main = ({idSelected, doList, doingCategoryList, StateDoing,
                 dragOverHandler_doings,
                 dragDropHandler_doings}) => {
     return (<div id='main'>
-        {idSelected === '0' && <GridCategory doList={doList} StateDoing={StateDoing} doingCategoryList={doingCategoryList}
+        {idSelected === '0' && <GridCategory StateDoing={StateDoing} doingCategoryList={doingCategoryList}
                                                 dragStartHandler={dragStartHandler_cards}
                                                 dragEndHandler={dragEndHandler_cards}
                                                 dragLeaveHandler={dragLeaveHandler_cards} 
                                                 dragOverHandler={dragOverHandler_cards}
                                                 dragDropHandler={dragDropHandler_cards}/>}
-        {idSelected === '1' && <GridState    doList={doList} StateDoing={StateDoing} />}
-        {idSelected === '2' && <GridRank     doList={doList} StateDoing={StateDoing} idSelected='2'
+        {idSelected === '1' && <GridState    StateDoing={StateDoing} doingCategoryList={doingCategoryList}/>}
+        {idSelected === '2' && <GridRank     StateDoing={StateDoing} doingCategoryList={doingCategoryList} idSelected='2'
                                                 dragStartHandler={dragStartHandler_doings}
                                                 dragEndHandler={dragEndHandler_doings}
                                                 dragLeaveHandler={dragLeaveHandler_doings} 
                                                 dragOverHandler={dragOverHandler_doings}
                                                 dragDropHandler={dragDropHandler_doings}/>}
-        {idSelected === '3' && <GridRank     doList={doList} StateDoing={StateDoing} idSelected='3'
+        {idSelected === '3' && <GridRank     StateDoing={StateDoing} doingCategoryList={doingCategoryList} idSelected='3'
                                                 dragStartHandler={dragStartHandler_doings}
                                                 dragEndHandler={dragEndHandler_doings}
                                                 dragLeaveHandler={dragLeaveHandler_doings} 

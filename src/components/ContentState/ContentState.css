@@ -1,0 +1,10 @@
+.elem {
+    padding: 1em;
+}
+.contentStateTtl { border-radius: 2px 2px 0 0; }
+.contentStateTtl h3 { margin: 0;}
+
+.doing {
+    display: flex;
+    gap: 4px;
+}
