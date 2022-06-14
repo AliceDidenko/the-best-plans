@@ -1,0 +1,18 @@
+#sidebar {
+    min-width: 10em;
+    background-color: var(--color-white);
+    padding: .6em;
+
+    -webkit-box-shadow: 4px 4px 8px 0px var(--color-shadow);
+    -moz-box-shadow: 4px 4px 8px 0px var(--color-shadow);
+    box-shadow: 4px 4px 8px 0px var(--color-shadow);
+
+    display: inline;
+}
+
+.items {
+    width: fit-content;
+}
+#sortSelecter {
+    border-top: solid 2px var(--color-dark);
+}

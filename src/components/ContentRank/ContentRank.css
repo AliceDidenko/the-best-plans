@@ -1,0 +1,13 @@
+.doing.rank {
+    cursor: grab;
+    border: solid 2px rgb(232, 232, 232);
+}
+.doing:hover {
+   background-color: rgb(232, 232, 232);
+}
+.rank .text{
+    width: 80%;
+}
+.rankNumber {
+    width: 1.5em;
+}

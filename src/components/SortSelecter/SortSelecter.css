@@ -1,0 +1,12 @@
+#sortSelecter {
+    width: 100%;
+    margin-top: .3em;
+    padding: .2em;
+    display: flex;
+    flex-direction: column;
+}
+#sortSelecterTitle h3 { margin: 0;}
+#sortSelecterTitle { 
+    margin: .3em 4px .2em 0;
+    
+}

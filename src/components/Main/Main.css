@@ -1,0 +1,5 @@
+#main {
+    width: calc(100% - 10em);
+    min-width: 30em;
+    padding: 1em 2em;
+}

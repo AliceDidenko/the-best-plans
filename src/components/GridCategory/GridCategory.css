@@ -1,0 +1,9 @@
+#gridCategory {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+#gridCategory .card {
+    min-width: 12em;
+}

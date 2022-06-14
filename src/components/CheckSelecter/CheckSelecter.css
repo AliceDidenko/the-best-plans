@@ -1,0 +1,8 @@
+.checkDiv {
+    display: flex;
+    margin: .5em 0;
+}
+.checkTxt {
+    margin-right: 4px;
+    margin-left: 4px;
+}

@@ -1,0 +1,9 @@
+.check {
+    width: 1em;
+    height: 1em;
+}
+
+.check.noCheck {    background-image: url('img/0.png');          background-size: contain; background-repeat: no-repeat;}
+.check.onCheck {    background-image: url('img/onCheck.png');    background-size: contain; background-repeat: no-repeat;}
+.check.doingCheck { background-image: url('img/continuous.png'); background-size: contain; background-repeat: no-repeat;}
+.check:hover{ background-image: url('img/hover.png');   background-size: contain; background-repeat: no-repeat; cursor: pointer;;}

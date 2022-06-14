@@ -1,0 +1,17 @@
+.card {
+    height: fit-content;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    
+    -webkit-box-shadow: 4px 4px 8px 0px var(--color-shadow);
+    -moz-box-shadow: 4px 4px 8px 0px var(--color-shadow);
+    box-shadow: 4px 4px 8px 0px var(--color-shadow);
+}
+
+.card[draggable='true'] {
+    cursor: grab;
+}
+
+.card.dragOver {
+    background-color: var(--color-shadow);
+}

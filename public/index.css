@@ -1,0 +1,28 @@
+:root {
+    --color-white: rgba(255, 255, 255, 1);
+    --color-dark:  rgb(59, 59, 59);
+    --color-gray1:  rgb(243, 243, 243);
+    --color-grayB:  rgb(246, 250, 254);
+    --color-shadow: rgba(34, 60, 80, 0.2);
+    --color-bodyGray:rgb(210, 210, 210);
+  
+    --color-c0:  rgb(150, 150, 150);
+    --color-c1:  rgb(255, 175, 175);
+    --color-c2:  rgb(255, 189, 149);
+    --color-c3:  rgb(231, 151, 255);
+    --color-c4:  rgb(94, 235, 171);
+    --color-c9:  rgb(23, 196, 118);
+    --color-c5:  rgb(148, 225, 255);
+    --color-c6:  rgb(79, 176, 255);
+    --color-c7:  rgb(158, 166, 255);
+    --color-c8:  rgb(31, 197, 243);
+}
+* { box-sizing: border-box;}
+html { width: 100%; }
+
+#root {
+    height: 100%;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-gray1);
+}

@@ -1,0 +1,10 @@
+.elem {
+    padding: 1em;
+}
+.contentCategoryTtl { border-radius: 2px 2px 0 0; }
+.contentCategoryTtl h3 { margin: 0;}
+
+.doing {
+    display: flex;
+    gap: 4px;
+}
