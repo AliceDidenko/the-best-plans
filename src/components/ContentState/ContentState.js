@@ -11,9 +11,9 @@ const ContentState = ({ doingCategoryList, title, status, style,
                         dragLeaveHandler, 
                         dragOverHandler,
                         dragDropHandler}) => {
-    const List   = doingCategoryList.map( c => (c.doings || [])).flat()
-
-    const content = List.filter(d => Number(d.status) === status/2).map( (doing, index) => <div 
+    const List   = doingCategoryList.map( c => (c.doings || [])).flat().filter(d => Number(d.status) === status/2)
+    const sortDoList =  List.sort((a, b) => a.rankState - b.rankState)
+    const content = sortDoList.map( (doing, index) => <div 
         key = { title +'_doing' + index + '' }
         className ='doing state' 
         //onClick = {() => { console.log(index)}}
@@ -24,7 +24,7 @@ const ContentState = ({ doingCategoryList, title, status, style,
         //onDragOver={e =>  dragOverHandler(e)} // над другим элементом
         //onDrop={e =>  dragDropHandler(e)} // отпустили и расчитываем на событие
     >
-        <div className='rankNumber'>{index+1}.</div>
+        <div className='rankNumber'>{Number(doing.rankState)+1}.</div>
         <Check state={doing.status} onclick={()=>onclick(doing.category, doing.id, index)}/>
         <div className='text'>{doing.name}, {doing.status}</div>
     </div>)

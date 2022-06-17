@@ -10,11 +10,10 @@ const App = () => {
     /* SortSelecter state */
     const [idSelected, setIdSelected] = useState('0')
     const changeIdSelected = (i) => {
-        console.log(i, 'IdSelected')
         setIdSelected(i);
     };
 
-    //
+
     const apperDoings = a => a.map( c => (c.doings || [])).flat()
     /* doList state */
     const [doingCategoryList, setCardList] = useState(doCategoryList)
@@ -22,12 +21,11 @@ const App = () => {
 
     const StateDoing = (title, i, index) => {
         const iObj = doings.find(obj => obj.id === i)
-        iObj.status = String( Number(iObj.status) < 1? Number(iObj.status)+0.5: 0 ) 
-        console.log('newDoing', i, doingCategoryList.filter((elem) => elem.category === title)[0].doings)
+        iObj.status = String( Number(iObj.status) < 1? Number(iObj.status)+0.5: 0 )
 
         doings[i] = iObj
         doingCategoryList.filter((elem) => elem.category === title)[0].doings[i] = iObj
-        setCardList([...doingCategoryList]) //setDoList([...doingCategoryList])
+        setCardList([...doingCategoryList])
     };
     /*
     const RemoveDoing = (i) => {
@@ -45,37 +43,19 @@ const App = () => {
 
     /* drag and drop state CARDS */
     const dragStartHandler_cards = (e, card) => {
-        //e.preventDefault()
         setCurrentCard(card)
-
         document.body.style.background = 'var(--color-bodyGray)'
-        console.log('currentCard =', currentCard)
-        console.log('dragStart =', card)
     }
-    const dragOverHandler_cards = (e) => {
-        e.preventDefault()
-    }
-    const dragEndHandler_cards = (e, card) => {
-        //e.preventDefault() 
-        //e.currentTarget.classList.remove("dragOver")
-        document.body.style.background = 'var(--color-gray1)'
-        console.log('dragEnd, ', doingCategoryList)
-    }
-    const dragLeaveHandler_cards = (e) => {
-        //e.preventDefault()
-    }
-    
+    const dragOverHandler_cards = (e) => { e.preventDefault()}
+    const dragEndHandler_cards = (e, card) => { document.body.style.background = 'var(--color-gray1)'}
+    const dragLeaveHandler_cards = (e) => {}
     const dragDropHandler_cards = (e, card) => {
         e.preventDefault()
         document.body.style.background = 'var(--color-gray1)'
 
         const newRank = Number(card.rank)
         const oldRank = Number(currentCard.rank)
-        console.log('oldRank =', oldRank)
-        console.log('newRank =', newRank)
-
         const doingCategoryListCopy = doingCategoryList.map( c => {
-            console.log('map: ', c.category, c.rank)
             if(newRank < oldRank) {
                 if((c.rank >= newRank) && (c.rank < oldRank)) {
                     c.rank = String(Number(c.rank) + 1)
@@ -88,43 +68,100 @@ const App = () => {
             }
             if(c.category === currentCard.category) {
                 c.rank = String(newRank)
-                console.log('?? card.rank', card.rank)
             }
-            //console.log('new card =', c.category, c.rank)
             return c
         })
-        console.log('new rank = ', doingCategoryListCopy.map(c => c.rank))
-
         setCardList(doingCategoryListCopy)
-        
     }
 
 
+    /* CARD state */
+    const [currentDoing, setCurrentDoing] = useState(null)
     /* drag and drop state DOINGS */
-    const dragStartHandler_doings = (e, d) => {
+    const dragStartHandler_doings = (e, doing) => {
+        setCurrentDoing(doing)
+        document.body.style.background = 'var(--color-bodyGray)'
+    }
+    const dragOverHandler_doings = (e) => { e.preventDefault()}
+    const dragEndHandler_doings = (e) => { document.body.style.background = 'var(--color-gray1)'}
+    const dragLeaveHandler_doings = (e) => {}
+    const dragDropHandler_doings = (e, doing, idSel) => {
         e.preventDefault()
+        document.body.style.background = 'var(--color-gray1)'
 
-        console.log('start', d)
-    }
-    const dragEndHandler_doings = (e, d) => {
-        e.preventDefault()
+        const newRank = Number(doing.rankImpo * (idSel === '2')        + doing.rankTime * (idSel === '3'))
+        const oldRank = Number(currentDoing.rankImpo * (idSel === '2') + currentDoing.rankTime * (idSel === '3'))
 
-        console.log('end', d)
-    }
-    const dragLeaveHandler_doings = (e) => {
-        e.preventDefault()
-    }
-    const dragOverHandler_doings = (e) => {
-        e.preventDefault()
-    }
-    const dragDropHandler_doings = (e) => {
-        e.preventDefault()
+        const doingCategoryListCopy = doingCategoryList.map( c => {
+            const newC = c
+
+            newC.doings = c.doings.map(d => {
+                const r = Number(d.rankImpo * (idSel === '2') + d.rankTime * (idSel === '3'))
+                
+                if(newRank < oldRank) {
+                    if((r >= newRank) && (r < oldRank)) {
+                        if(idSel === '2') d.rankImpo = String(Number(r) + 1)
+                        if(idSel === '3') d.rankTime = String(Number(r) + 1)
+                    }
+                }
+                if(newRank > oldRank) {
+                    if((r <= newRank) && (r > oldRank)) {
+                        if(idSel === '2') d.rankImpo = String(Number(r) - 1)
+                        if(idSel === '3') d.rankTime = String(Number(r) - 1)
+                    }
+                }
+                if(d.id === currentDoing.id) {
+                    if(idSel === '2') d.rankImpo = String(newRank)
+                    if(idSel === '3') d.rankTime = String(newRank)
+                }
+                return d
+            })
+            return newC
+        })
+        setCardList(doingCategoryListCopy)
     }
 
+
+
+    const changeValueTitle = (x, r) => {
+        const doingCategoryListCopy = doingCategoryList.map( c => {
+            if(c.rank === r) {
+                return {
+                    ...c,
+                    [x.target.name]: x.target.value
+                }
+            }
+            return c
+        })
+        setCardList(doingCategoryListCopy)
+    }
+    const changeValueInput = (x, rc, ri=false) => {
+        const doingCategoryListCopy = doingCategoryList.map( c => {
+            const newCat = c
+
+            if(c.rank === rc) {  
+                if(ri) {
+                    newCat.doings = c.doings.map(d => { 
+                        // eslint-disable-next-line no-unused-expressions
+                        return d.rankImpo === ri
+                        ? {...d, [x.target.name]: x.target.value}
+                        : d
+                    })
+                } else newCat[x.target.name]= x.target.value
+                //console.log(x.target)
+            }
+            return newCat
+        })
+        setCardList(doingCategoryListCopy)
+        //x.onblur()
+    }
+    
     return(
         <div id='app'>
             <Sidebar idSelected={idSelected} changeIdSelected={changeIdSelected}/>
-            <Main    idSelected={idSelected} StateDoing={StateDoing} doingCategoryList={doingCategoryList}
+            <Main    idSelected={idSelected} StateDoing={StateDoing} doingCategoryList={doingCategoryList} 
+                                                                    onChangeValueTitle={changeValueTitle}
+                                                                    onChangeValueInput={changeValueInput}
                                             dragStartHandler_cards={dragStartHandler_cards}
                                             dragEndHandler_cards={dragEndHandler_cards}
                                             dragLeaveHandler_cards={dragLeaveHandler_cards} 
@@ -135,6 +172,7 @@ const App = () => {
                                             dragLeaveHandler_doings={dragLeaveHandler_doings} 
                                             dragOverHandler_doings={dragOverHandler_doings}
                                             dragDropHandler_doings={dragDropHandler_doings}/>
+            
         </div>
     );
 }

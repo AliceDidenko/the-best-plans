@@ -3,7 +3,7 @@ import './GridRank.css'
 import Card from '../Card/Card'
 import ContentRank from '../ContentRank/ContentRank'
 
-const GridRank = ({doList, doingCategoryList, StateDoing, idSelected,
+const GridRank = ({doingCategoryList, StateDoing, idSelected, onChangeValue,
                     dragStartHandler, 
                     dragEndHandler, 
                     dragLeaveHandler, 
@@ -15,13 +15,14 @@ const GridRank = ({doList, doingCategoryList, StateDoing, idSelected,
             <ContentRank
                         doingCategoryList={doingCategoryList}
                         onclick={StateDoing}
+                        onChangeValue={onChangeValue}
                         idSelected={idSelected}
                         dragStartHandler={dragStartHandler}
                         dragEndHandler={dragEndHandler}
                         dragLeaveHandler={dragLeaveHandler} 
                         dragOverHandler={dragOverHandler}
                         dragDropHandler={dragDropHandler}
-                        style = {{'backgroundColor': 'var(--color-c0)'}}/>
+                        style = {{'backgroundColor': 'var(--color-c6)'}}/>
         </Card>
     </div>)
 };

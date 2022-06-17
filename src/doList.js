@@ -10,8 +10,9 @@ export default [
                 name: 'Философия',
                 category: 'Аспа',
                 rankImpo: '12',
-                rankTime: '16',
-                deadline: '01.09.22',
+                rankTime: '5',
+                rankState: '10',
+                rankCateg: '2',
                 status: '0'
             },
             {
@@ -20,7 +21,8 @@ export default [
                 category: 'Аспа',
                 rankImpo: '11',
                 rankTime: '15',
-                deadline: '01.09.22',
+                rankState: '0',
+                rankCateg: '3',
                 status: '0.5'
             },
             {
@@ -29,7 +31,8 @@ export default [
                 category: 'Аспа',
                 rankImpo: '10',
                 rankTime: '14',
-                deadline: '01.09.22',
+                rankState: '8',
+                rankCateg: '1',
                 status: '0'
             },
             {
@@ -38,7 +41,8 @@ export default [
                 category: 'Аспа',
                 rankImpo: '6',
                 rankTime: '4',
-                deadline: '01.07.22',
+                rankState: '9',
+                rankCateg: '0',
                 status: '0'
             },
         ]
@@ -54,8 +58,8 @@ export default [
                 category: 'Научка',
                 rankImpo: '7',
                 rankTime: '3',
-                deadline: '17.06.22',
-                categoryId: '0',
+                rankState: '7',
+                rankCateg: '0',
                 status: '0'
             },
             {
@@ -64,7 +68,8 @@ export default [
                 category: 'Научка',
                 rankImpo: '0',
                 rankTime: '2',
-                deadline: '01.07.22',
+                rankState: '5',
+                rankCateg: '2',
                 status: '0'
             },
             {
@@ -73,7 +78,8 @@ export default [
                 category: 'Научка',
                 rankImpo: '4',
                 rankTime: '1',
-                deadline: '01.07.22',
+                rankState: '6',
+                rankCateg: '1',
                 status: '0'
             },
         ]
@@ -89,7 +95,8 @@ export default [
                 category: 'Дела',
                 rankImpo: '8',
                 rankTime: '13',
-                deadline: '',
+                rankState: '4',
+                rankCateg: '0',
                 status: '0'
             },
         ]
@@ -105,7 +112,8 @@ export default [
                 category: 'Работа',
                 rankImpo: '5',
                 rankTime: '7',
-                deadline: '',
+                rankState: '0',
+                rankCateg: '2',
                 status: '1'
             },
             {
@@ -114,7 +122,8 @@ export default [
                 category: 'Работа',
                 rankImpo: '2',
                 rankTime: '8',
-                deadline: '',
+                rankState: '1',
+                rankCateg: '1',
                 status: '0.5'
             },
             {
@@ -123,7 +132,8 @@ export default [
                 category: 'Работа',
                 rankImpo: '1',
                 rankTime: '0',
-                deadline: '',
+                rankState: '2',
+                rankCateg: '0',
                 status: '0.5'
             },
         ]
@@ -140,7 +150,8 @@ export default [
                 category: 'Искусство',
                 rankImpo: '13',
                 rankTime: '6',
-                deadline: '',
+                rankState: '3',
+                rankCateg: '0',
                 status: '0.5'
             },
             {
@@ -149,7 +160,8 @@ export default [
                 category: 'Искусство',
                 rankImpo: '3',
                 rankTime: '12',
-                deadline: '',
+                rankState: '2',
+                rankCateg: '1',
                 status: '0'
             },
             {
@@ -158,7 +170,8 @@ export default [
                 category: 'Искусство',
                 rankImpo: '14',
                 rankTime: '9',
-                deadline: '',
+                rankState: '3',
+                rankCateg: '2',
                 status: '0'
             },
         ]
@@ -166,7 +179,8 @@ export default [
     {
         category: '5',
         rank: '6',
-        color: '--color-c5'
+        color: '--color-c5',
+        doings: []
     },
     {
         category: 'Покупки',
@@ -179,7 +193,8 @@ export default [
                 category: 'Покупки',
                 rankImpo: '15',
                 rankTime: '11',
-                deadline: '',
+                rankState: '0',
+                rankCateg: '1',
                 status: '0'
             },
             {
@@ -188,7 +203,8 @@ export default [
                 category: 'Покупки',
                 rankImpo: '9',
                 rankTime: '10',
-                deadline: '',
+                rankState: '1',
+                rankCateg: '0',
                 status: '0'
             },
         ]
