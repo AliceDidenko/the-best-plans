@@ -89,31 +89,35 @@ const App = () => {
         e.preventDefault()
         document.body.style.background = 'var(--color-gray1)'
 
-        const newRank = Number(doing.rankImpo * (idSel === '2')        + doing.rankTime * (idSel === '3'))
-        const oldRank = Number(currentDoing.rankImpo * (idSel === '2') + currentDoing.rankTime * (idSel === '3'))
+        const newRank = Number(doing.rankImpo * (idSel === '2')        + doing.rankTime * (idSel === '3')        + doing.rankState * (idSel === '1'))
+        const oldRank = Number(currentDoing.rankImpo * (idSel === '2') + currentDoing.rankTime * (idSel === '3') + doing.rankState * (idSel === '1'))
 
         const doingCategoryListCopy = doingCategoryList.map( c => {
             const newC = c
 
             newC.doings = c.doings.map(d => {
-                const r = Number(d.rankImpo * (idSel === '2') + d.rankTime * (idSel === '3'))
+                const r = Number(d.rankImpo * (idSel === '2') + d.rankTime * (idSel === '3') + d.rankState * (idSel === '1'))
                 
                 if(newRank < oldRank) {
                     if((r >= newRank) && (r < oldRank)) {
                         if(idSel === '2') d.rankImpo = String(Number(r) + 1)
                         if(idSel === '3') d.rankTime = String(Number(r) + 1)
+                        if(idSel === '1') d.rankState = String(Number(r) + 1)
                     }
                 }
                 if(newRank > oldRank) {
                     if((r <= newRank) && (r > oldRank)) {
                         if(idSel === '2') d.rankImpo = String(Number(r) - 1)
                         if(idSel === '3') d.rankTime = String(Number(r) - 1)
+                        if(idSel === '1') d.rankState = String(Number(r) - 1)
                     }
                 }
                 if(d.id === currentDoing.id) {
                     if(idSel === '2') d.rankImpo = String(newRank)
                     if(idSel === '3') d.rankTime = String(newRank)
+                    if(idSel === '1') d.rankState = String(newRank)
                 }
+                console.log('new rankState', d.rankState)
                 return d
             })
             return newC
@@ -122,7 +126,7 @@ const App = () => {
     }
 
 
-
+    /* Input state */
     const changeValueTitle = (x, r) => {
         const doingCategoryListCopy = doingCategoryList.map( c => {
             if(c.rank === r) {
@@ -153,7 +157,6 @@ const App = () => {
             return newCat
         })
         setCardList(doingCategoryListCopy)
-        //x.onblur()
     }
     
     return(

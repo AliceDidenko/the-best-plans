@@ -29,6 +29,11 @@ const GridState = ({ StateDoing, doingCategoryList, onChangeValueInput,
                                     doingCategoryList={doingCategoryList}
                                     onChangeValueInput={onChangeValueInput}
                                     onclick={StateDoing}
+                                    dragStartHandler={dragStartHandler}
+                                    dragEndHandler={dragEndHandler}
+                                    dragLeaveHandler={dragLeaveHandler} 
+                                    dragOverHandler={dragOverHandler}
+                                    dragDropHandler={dragDropHandler}
                                     style = {{'backgroundColor': 'var('+colors[i]+')'}}/>
             </Card>
         )

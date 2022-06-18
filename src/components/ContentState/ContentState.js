@@ -6,7 +6,6 @@ import Input from '../Input/Input'
 
 const ContentState = ({ doingCategoryList, title, status, style,
                         onclick,
-                        idSelected,
                         onChangeValueInput,
                         dragStartHandler, 
                         dragEndHandler, 
@@ -25,9 +24,9 @@ const ContentState = ({ doingCategoryList, title, status, style,
             draggable={true}
             onDragStart={e => dragStartHandler(e, doing)} // ухватили элемент
             onDragLeave={e => dragLeaveHandler(e)} // за пределы другого элемента
-            onDragEnd={e =>  dragEndHandler(e, doing)} // отпустили
-            //onDragOver={e =>  dragOverHandler(e)} // над другим элементом
-            //onDrop={e =>  dragDropHandler(e)} // отпустили и расчитываем на событие
+            onDragEnd={e =>  dragEndHandler(e)} // отпустили
+            onDragOver={e =>  dragOverHandler(e)} // над другим элементом
+            onDrop={e =>  dragDropHandler(e, doing, '1')} // отпустили и расчитываем на событие
         >
             <div className='rankNumber'>{Number(doing.rankState)+1}.</div>
             <Check state={doing.status} onclick={()=>onclick(doing.category, doing.id, index)}/>
