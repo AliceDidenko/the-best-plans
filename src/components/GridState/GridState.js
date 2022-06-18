@@ -4,7 +4,7 @@ import ContentState from '../ContentState/ContentState'
 import Card from '../Card/Card'
 
 
-const GridState = ({ StateDoing, doingCategoryList,
+const GridState = ({ StateDoing, doingCategoryList, onChangeValueInput,
     dragStartHandler, 
     dragEndHandler, 
     dragLeaveHandler, 
@@ -27,6 +27,7 @@ const GridState = ({ StateDoing, doingCategoryList,
                 <ContentState    title={titles[i]}
                                     status={i}
                                     doingCategoryList={doingCategoryList}
+                                    onChangeValueInput={onChangeValueInput}
                                     onclick={StateDoing}
                                     style = {{'backgroundColor': 'var('+colors[i]+')'}}/>
             </Card>

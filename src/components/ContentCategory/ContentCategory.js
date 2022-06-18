@@ -4,7 +4,7 @@ import Check from '../Check/Check'
 import Input from '../Input/Input'
 //Number(new Date())
 
-const ContentCategory = ({ doingCategoryList, title, style, onclick, onChangeValueTitle,onChangeValueInput, rank}) => {
+const ContentCategory = ({ doingCategoryList, title, style, onclick,onChangeValueInput, rank}) => {
     //console.log('render ContentCategory')
     const doingList = doingCategoryList.filter((elem) => elem.category === title)
     const content = doingList[0].doings || []
@@ -25,7 +25,7 @@ const ContentCategory = ({ doingCategoryList, title, style, onclick, onChangeVal
     return(
         <div className='content contentCategory'>
             <div className='elem contentCategoryTtl' style={style}>
-                <Input text={title} onChangeValue={onChangeValueInput} name='category' rank={rank} classes={'input titels'} placeholder={"Заголовок категории"} style={style} />
+                <Input text={title} onChangeValue={onChangeValueInput} name='category' rank={rank} classes={'input titels'} placeholder={"Категория"} style={style} />
             </div>
             <div className='elem contentCategoryBox'>{contentElems}</div>
         </div>

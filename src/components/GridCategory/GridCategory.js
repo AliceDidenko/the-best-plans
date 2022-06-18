@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 import ContentCategory from '../ContentCategory/ContentCategory'
 
 
-const GridCategory = ({ StateDoing, doingCategoryList, onChangeValueTitle, onChangeValueInput,
+const GridCategory = ({ StateDoing, doingCategoryList, onChangeValueInput,
     dragStartHandler, 
     dragEndHandler, 
     dragLeaveHandler, 
@@ -23,7 +23,6 @@ const GridCategory = ({ StateDoing, doingCategoryList, onChangeValueTitle, onCha
                 dragOverHandler={dragOverHandler}
                 dragDropHandler={dragDropHandler}>
             <ContentCategory    title={elem.category}
-                                onChangeValueTitle={onChangeValueTitle}
                                 onChangeValueInput={onChangeValueInput}
                                 doingCategoryList={doingCategoryList}
                                 onclick={StateDoing}

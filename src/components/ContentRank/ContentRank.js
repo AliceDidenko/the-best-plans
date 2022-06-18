@@ -8,7 +8,7 @@ const ContentRank = ({  doingCategoryList,
                         idSelected, 
                         style, 
                         onclick, 
-                        onChangeValue,
+                        onChangeValueInput,
                         dragStartHandler, 
                         dragEndHandler, 
                         dragLeaveHandler, 
@@ -19,22 +19,26 @@ const ContentRank = ({  doingCategoryList,
     const sortDoList =  (idSelected === '2' && List.sort((a, b) => a.rankImpo - b.rankImpo))
                     ||  (idSelected === '3' && List.sort((a, b) => a.rankTime - b.rankTime))
 
-    const content = sortDoList.map( (doing, index) => <div 
-        key = { idSelected +'_doing' + index + '' }
-        className ='doing rank' 
-        //onClick = {() => { console.log(index)}}
-        draggable={true}
-        onDragStart={e => dragStartHandler(e, doing)} // ухватили элемент
-        onDragLeave={e => dragLeaveHandler(e)} // за пределы другого элемента
-        onDragEnd={e =>  dragEndHandler(e)} // отпустили
-        onDragOver={e =>  dragOverHandler(e)} // над другим элементом
-        onDrop={e =>  dragDropHandler(e, doing, idSelected)} // отпустили и расчитываем на событие
-    >
-        <div className='rankNumber'>{idSelected === '2'? Number(doing.rankImpo)+1: Number(doing.rankTime)+1}.</div>
-        <Check state={doing.status} onclick={()=>onclick(doing.category, doing.id, index)}/>
-        <div className='text'>{doing.name}, {Number(doing.rankImpo)+1}</div>
-    </div>
-    )
+    const content = sortDoList.map( (doing, index) => {
+        const rank = doingCategoryList.find(c => c.category === doing.category).rank
+        
+        return <div 
+            key = { idSelected +'_doing' + index + '' }
+            className ='doing rank' 
+            //onClick = {() => { console.log(index)}}
+            draggable={true}
+            onDragStart={e => dragStartHandler(e, doing)} // ухватили элемент
+            onDragLeave={e => dragLeaveHandler(e)} // за пределы другого элемента
+            onDragEnd={e =>  dragEndHandler(e)} // отпустили
+            onDragOver={e =>  dragOverHandler(e)} // над другим элементом
+            onDrop={e =>  dragDropHandler(e, doing, idSelected)} // отпустили и расчитываем на событие
+        >
+            <div className='rankNumber'>{idSelected === '2'? Number(doing.rankImpo)+1: Number(doing.rankTime)+1}.</div>
+            <Check state={doing.status} onclick={()=>onclick(doing.category, doing.id, index)}/>
+            <Input text={doing.name} onChangeValue={onChangeValueInput} name='name' rank={rank} rankD={doing.rankImpo} classes={'input doings text'} placeholder={"новое дело"} />
+            {Number(doing.rankImpo)+1}
+        </div>
+    })
 
     const title = idSelected === '2'? 'Дела по важности': 'Дела по срочности'
 
