@@ -4,7 +4,7 @@ import ContentState from '../ContentState/ContentState'
 import Card from '../Card/Card'
 
 
-const GridState = ({ StateDoing, doingCategoryList, onChangeValueInput,
+const GridState = ({ StateDoing, doingCategoryList, onChangeValueInput, onclickDelete,
     dragStartHandler, 
     dragEndHandler, 
     dragLeaveHandler, 
@@ -28,7 +28,8 @@ const GridState = ({ StateDoing, doingCategoryList, onChangeValueInput,
                                     status={i}
                                     doingCategoryList={doingCategoryList}
                                     onChangeValueInput={onChangeValueInput}
-                                    onclick={StateDoing}
+                                    onclickState={StateDoing}
+                                    onclickDelete={onclickDelete}
                                     dragStartHandler={dragStartHandler}
                                     dragEndHandler={dragEndHandler}
                                     dragLeaveHandler={dragLeaveHandler} 

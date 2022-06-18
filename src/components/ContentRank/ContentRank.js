@@ -7,7 +7,7 @@ import Input from '../Input/Input'
 const ContentRank = ({  doingCategoryList,
                         idSelected, 
                         style, 
-                        onclick, 
+                        onclickState,  onclickDelete,
                         onChangeValueInput,
                         dragStartHandler, 
                         dragEndHandler, 
@@ -34,9 +34,9 @@ const ContentRank = ({  doingCategoryList,
             onDrop={e =>  dragDropHandler(e, doing, idSelected)} // отпустили и расчитываем на событие
         >
             <div className='rankNumber'>{idSelected === '2'? Number(doing.rankImpo)+1: Number(doing.rankTime)+1}.</div>
-            <Check state={doing.status} onclick={()=>onclick(doing.category, doing.id, index)}/>
+            <Check typeCheck='state' state={doing.status} onclick={()=>onclickState(doing.category, doing.id, index)}/>
             <Input text={doing.name} onChangeValue={onChangeValueInput} name='name' rank={rank} rankD={doing.rankImpo} classes={'input doings text'} placeholder={"новое дело"} />
-            {Number(doing.rankImpo)+1}
+            <Check typeCheck='deleteDoing' onclick={()=>onclickDelete('doing', doing.rankImpo)}/>
         </div>
     })
 

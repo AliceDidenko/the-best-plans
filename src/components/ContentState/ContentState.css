@@ -4,7 +4,10 @@
 .contentStateTtl { border-radius: 2px 2px 0 0; }
 .contentStateTtl h3 { margin: 0;}
 
-.doing {
+
+
+.doing.state {
     display: flex;
     gap: 4px;
+    cursor: grab;
 }

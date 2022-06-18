@@ -141,7 +141,7 @@ const App = () => {
     }
     const changeValueInput = (x, rc, ri=false) => {
         const doingCategoryListCopy = doingCategoryList.map( c => {
-            const newCat = c
+            let newCat = c
 
             if(c.rank === rc) {  
                 if(ri) {
@@ -158,6 +158,21 @@ const App = () => {
         })
         setCardList(doingCategoryListCopy)
     }
+
+    const deleteElement = (typeElement, r) => {
+        let doingCategoryListCopy = []
+
+        if (typeElement === 'category') {
+            doingCategoryListCopy = doingCategoryList.filter(obj => obj.rank!==r)
+        } else {
+            doingCategoryListCopy= doingCategoryList.map(c => {
+                const newC = c
+                newC.doings = c.doings.filter(d => d.rankImpo!==r)
+                return newC
+            })
+        }
+        setCardList(doingCategoryListCopy)
+    }
     
     return(
         <div id='app'>
@@ -165,6 +180,7 @@ const App = () => {
             <Main    idSelected={idSelected} StateDoing={StateDoing} doingCategoryList={doingCategoryList} 
                                                                     onChangeValueTitle={changeValueTitle}
                                                                     onChangeValueInput={changeValueInput}
+                                                                    onclickDelete={deleteElement}
                                             dragStartHandler_cards={dragStartHandler_cards}
                                             dragEndHandler_cards={dragEndHandler_cards}
                                             dragLeaveHandler_cards={dragLeaveHandler_cards} 

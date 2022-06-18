@@ -1,10 +1,17 @@
 .elem {
     padding: 1em;
 }
-.contentCategoryTtl { border-radius: 2px 2px 0 0; }
+.contentCategoryTtl { 
+    border-radius: 2px 2px 0 0; 
+    display: flex; 
+    justify-content: space-between;
+    align-items:center;
+}
 .contentCategoryTtl h3 { margin: 0;}
 
 .doing {
     display: flex;
     gap: 4px;
+    /*justify-content: space-between;*/
+    align-items:center;
 }

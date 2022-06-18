@@ -2,11 +2,19 @@
     width: 1em;
     height: 1em;
 }
-
-.check.noCheck {    background-image: url('img/0.png');          background-size: contain; background-repeat: no-repeat;}
-.check.onCheck {    background-image: url('img/onCheck.png');    background-size: contain; background-repeat: no-repeat;}
-.check.doingCheck { background-image: url('img/continuous.png'); background-size: contain; background-repeat: no-repeat;}
 .check:hover{ cursor: pointer;}
+
+.check.state.noCheck {    background-image: url('img/0.png');          background-size: contain; background-repeat: no-repeat;}
+.check.state.onCheck {    background-image: url('img/onCheck.png');    background-size: contain; background-repeat: no-repeat;}
+.check.state.doingCheck { background-image: url('img/continuous.png'); background-size: contain; background-repeat: no-repeat;}
+
+.check.delete { 
+    margin: 0;
+    background-image: url('img/x_gray.png');
+    background-size: contain; background-repeat: no-repeat;
+}
+.check.deleteTitle:hover { background-image: url('img/x_white.png'); background-size: contain; background-repeat: no-repeat;}
+.check.deleteDoing:hover { background-image: url('img/x_blue.png'); background-size: contain; background-repeat: no-repeat;}
 /*
 .check:hover{ background-image: url('img/hover.png');   background-size: contain; background-repeat: no-repeat; cursor: pointer;}
 */
