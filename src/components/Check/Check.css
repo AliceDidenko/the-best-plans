@@ -8,13 +8,25 @@
 .check.state.onCheck {    background-image: url('img/onCheck.png');    background-size: contain; background-repeat: no-repeat;}
 .check.state.doingCheck { background-image: url('img/continuous.png'); background-size: contain; background-repeat: no-repeat;}
 
-.check.delete { 
+.check.deleteTitle { 
     margin: 0;
-    background-image: url('img/x_gray.png');
+    background-image: url('img/void.png');
     background-size: contain; background-repeat: no-repeat;
 }
-.check.deleteTitle:hover { background-image: url('img/x_white.png'); background-size: contain; background-repeat: no-repeat;}
-.check.deleteDoing:hover { background-image: url('img/x_blue.png'); background-size: contain; background-repeat: no-repeat;}
+.content:hover .check.deleteTitle { background-image: url('img/x_gray.png');}
+.content:hover .check.deleteTitle:hover { background-image: url('img/x_white.png'); background-size: contain; background-repeat: no-repeat;}
+
+.check.deleteDoing {
+    margin: 0;
+    background-image: url('img/void.png');
+    background-size: contain; background-repeat: no-repeat;
+}
+.doing:hover  .check.deleteDoing { background-image: url('img/x_gray.png');}
+.doing:hover  .check.deleteDoing:hover { background-image: url('img/x_blue.png'); background-size: contain; background-repeat: no-repeat;}
+
+.check.add { background-image: url('img/+.png'); background-size: contain; background-repeat: no-repeat;}
+.doing              .check.add:hover { background-image: url('img/+_blue.png'); background-size: contain; background-repeat: no-repeat;}
+.contentCategoryTtl .check.add:hover { background-image: url('img/+_white.png'); background-size: contain; background-repeat: no-repeat;}
 /*
 .check:hover{ background-image: url('img/hover.png');   background-size: contain; background-repeat: no-repeat; cursor: pointer;}
 */

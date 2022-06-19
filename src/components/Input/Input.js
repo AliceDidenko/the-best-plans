@@ -3,7 +3,7 @@ import './Input.css';
 
 
 const Input = ({text, onChangeValue, name,  rank, rankD, placeholder, style, classes}) => {
- console.log('Input', text)
+ //console.log('Input', text)
     return (<div className='inputBox'>
         <input className={classes} 
                 style={style}

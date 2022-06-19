@@ -11,7 +11,10 @@
 
 .doing {
     display: flex;
-    gap: 4px;
-    /*justify-content: space-between;*/
+    /*gap: 4px;
+    justify-content: space-between;*/
     align-items:center;
+}
+.doing .input {
+    width: 100%;
 }

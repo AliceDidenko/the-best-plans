@@ -4,9 +4,20 @@
 .doing:hover {
    background-color: rgb(232, 232, 232);
 }
-.rank .text{
-    width: 80%;
-}
 .rankNumber {
     width: 1.5em;
 }
+
+.doing.rank {
+    width: 100%;
+    display: flex;
+    /*gap: 4px;
+    justify-content: space-between;*/
+    align-items:center;
+}
+.doing.rank .doingCategory {
+    width: 7.6em;
+    font-size: small;
+    color: rgb(117, 117, 117);
+}
+.doing.rank .input { width: 100%; }
