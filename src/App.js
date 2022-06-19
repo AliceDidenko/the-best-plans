@@ -27,16 +27,7 @@ const App = () => {
         doingCategoryList.filter((elem) => elem.category === title)[0].doings[i] = iObj
         setCardList([...doingCategoryList])
     };
-    /*
-    const RemoveDoing = (i) => {
-        console.log(i, 'Doing')
-        setDoList(doings);
-    };
-    const AddDoing = (i) => {
-        console.log(i, 'Doing')
-        setDoList(doings);
-    };
-*/
+
 
     /* CARD state */
     const [currentCard, setCurrentCard] = useState(null)
@@ -159,6 +150,8 @@ const App = () => {
         setCardList(doingCategoryListCopy)
     }
 
+
+    /* Delete */
     const deleteElement = (typeElement, r) => {
         let doingCategoryListCopy = []
 
@@ -173,6 +166,20 @@ const App = () => {
         }
         setCardList(doingCategoryListCopy)
     }
+    /* Add */
+    const createElement = (typeElem, nameBox, newElem) => {
+        if(typeElem === 'addElems') {
+            setCardList(
+                doingCategoryList.map(c => {
+                    const newC = c
+                    if((c.category === nameBox)) {
+                        newC.doings[newC.doings.length] = newElem
+                    }
+                    return newC
+                })
+            )
+        }
+    }
     
     return(
         <div id='app'>
@@ -181,6 +188,7 @@ const App = () => {
                                                                     onChangeValueTitle={changeValueTitle}
                                                                     onChangeValueInput={changeValueInput}
                                                                     onclickDelete={deleteElement}
+                                                                    onclickCreate={createElement}
                                             dragStartHandler_cards={dragStartHandler_cards}
                                             dragEndHandler_cards={dragEndHandler_cards}
                                             dragLeaveHandler_cards={dragLeaveHandler_cards} 

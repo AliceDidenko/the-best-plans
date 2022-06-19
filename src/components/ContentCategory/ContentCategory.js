@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './ContentCategory.css'
 import Check from '../Check/Check'
 import Input from '../Input/Input'
@@ -20,28 +20,28 @@ const ContentCategory = ({ doingCategoryList, title, style, onclickState, onclic
     })
 
 
-
     const List   = doingCategoryList.map( c => (c.doings || [])).flat()
     const endRankList = List.length
     const endRankCateg = List.filter(d => d.category === title).length
     const endRankState = List.filter(d => d.status === '0').length
+
+    /* Input state */
     const newDo = {
-        id: 'id'+ endRankList,
-        name: '',
-        category: title,
-        rankImpo: endRankList,
-        rankTime:  endRankList,
-        rankState: endRankState,
-        rankCateg: endRankCateg,
-        status: '0'
+            id: 'id'+ endRankList,
+            name: '',
+            category: title,
+            rankImpo: String(endRankList),
+            rankTime:  String(endRankList),
+            rankState: String(endRankState),
+            rankCateg: String(endRankCateg),
+            status: '0'
     }
 
     const newElems = <div 
-        key = {"C" + rank + "D" + newDo.rankImpo}
+        key = {"createC" + rank + "D" + newDo.rankImpo}
         className ='doing newElems'
     >
-        <Check typeCheck='addElems' state={newDo.status} onclick={()=>onclickCreate(title, newDo.id, newDo)}/>
-        <Input text={newDo.name} onChangeValue={onChangeValueInput} name='name' rank={rank} rankD={newDo.rankImpo} classes={'input doings addDoing'} placeholder={"новое дело"} />
+        <Check typeCheck='addElems' state={newDo.status} onclick={()=>onclickCreate('addElems', title, newDo)}/>
     </div>
 
     //title = (title === '')? 'Дела': title
