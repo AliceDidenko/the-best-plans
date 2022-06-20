@@ -5,7 +5,7 @@ import GridState from '../GridState/GridState'
 import GridRank from '../GridRank/GridRank'
 
 
-const Main = ({idSelected, doingCategoryList, StateDoing, 
+const Main = ({idSelected, doingCategoryList, StateDoing, onclickColor,
                 onChangeValueInput, onclickDelete, onclickCreate,
                 dragStartHandler_cards, 
                 dragEndHandler_cards, 
@@ -18,7 +18,7 @@ const Main = ({idSelected, doingCategoryList, StateDoing,
                 dragOverHandler_doings,
                 dragDropHandler_doings}) => {
     return (<div id='main'>
-        {idSelected === '0' && <GridCategory StateDoing={StateDoing} doingCategoryList={doingCategoryList} 
+        {idSelected === '0' && <GridCategory StateDoing={StateDoing} doingCategoryList={doingCategoryList} onclickColor={onclickColor}
                                                 onChangeValueInput={onChangeValueInput} onclickDelete={onclickDelete} onclickCreate={onclickCreate}
                                                 dragStartHandler={dragStartHandler_cards}
                                                 dragEndHandler={dragEndHandler_cards}

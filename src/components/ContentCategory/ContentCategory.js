@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './ContentCategory.css'
 import Check from '../Check/Check'
 import Input from '../Input/Input'
+import PaletButton from '../PaletButton/PaletButton'
 //Number(new Date())
 
-const ContentCategory = ({ doingCategoryList, title, style, onclickState, onclickDelete, onclickCreate,onChangeValueInput, rank}) => {
+const ContentCategory = ({ doingCategoryList, title,onclickColor, style, onclickState, onclickDelete, onclickCreate,onChangeValueInput, rank}) => {
     //console.log('render ContentCategory')
     const doingList = doingCategoryList.filter((elem) => elem.category === title)
     const content = doingList[0].doings || []
@@ -41,7 +42,7 @@ const ContentCategory = ({ doingCategoryList, title, style, onclickState, onclic
         key = {"createC" + rank + "D" + newDo.rankImpo}
         className ='doing newElems'
     >
-        <Check typeCheck='addElems' state={newDo.status} onclick={()=>onclickCreate('addElems', title, newDo)}/>
+        <Check typeCheck='addElems' state={newDo.status} onclick={()=>onclickCreate('addElems', newDo, title)}/>
     </div>
 
     //title = (title === '')? 'Дела': title
@@ -50,6 +51,7 @@ const ContentCategory = ({ doingCategoryList, title, style, onclickState, onclic
         <div className='content contentCategory'>
             <div className='elem contentCategoryTtl' style={style}>
                 <Input text={title} onChangeValue={onChangeValueInput} name='category' rank={rank} classes={'input titels'} placeholder={"Категория"} style={style} />
+                <PaletButton classes='paletButton' cardRank={rank} onclick={()=>onclickColor(rank)}/>
                 <Check typeCheck='deleteTitle' onclick={()=>onclickDelete('category', rank)}/>
             </div>
             <div className='elem contentCategoryBox'>

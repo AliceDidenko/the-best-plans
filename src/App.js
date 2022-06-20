@@ -167,7 +167,7 @@ const App = () => {
         setCardList(doingCategoryListCopy)
     }
     /* Add */
-    const createElement = (typeElem, nameBox, newElem) => {
+    const createElement = (typeElem, newElem, nameBox) => {
         if(typeElem === 'addElems') {
             setCardList(
                 doingCategoryList.map(c => {
@@ -178,13 +178,21 @@ const App = () => {
                     return newC
                 })
             )
+        } 
+        if (typeElem === 'addCategory') {
+            setCardList(
+                doingCategoryList.concat([newElem])
+            )
         }
     }
+
+    /* Color state */
+    const changeClickColor = () => {}
     
     return(
         <div id='app'>
             <Sidebar idSelected={idSelected} changeIdSelected={changeIdSelected}/>
-            <Main    idSelected={idSelected} StateDoing={StateDoing} doingCategoryList={doingCategoryList} 
+            <Main    idSelected={idSelected} StateDoing={StateDoing} doingCategoryList={doingCategoryList} onclickColor={changeClickColor}
                                                                     onChangeValueTitle={changeValueTitle}
                                                                     onChangeValueInput={changeValueInput}
                                                                     onclickDelete={deleteElement}

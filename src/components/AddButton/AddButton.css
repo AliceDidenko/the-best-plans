@@ -1,0 +1,15 @@
+.addCategory {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(117, 117, 117);
+    background-image: url('img/+_white.png'); background-size: contain; background-repeat: no-repeat;
+    border-radius: 50%;
+
+    -webkit-box-shadow: 4px 4px 8px 0px var(--color-shadow);
+    -moz-box-shadow: 4px 4px 8px 0px var(--color-shadow);
+    box-shadow: 4px 4px 8px 0px var(--color-shadow);
+}
+.addCategory:hover{ 
+    cursor: pointer;
+    background-color: var(--color-c6);
+}

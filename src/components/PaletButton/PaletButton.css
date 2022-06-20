@@ -1,0 +1,29 @@
+.paletButton {
+    width: 1em;
+    height: 1em;
+    margin-left: 4px;
+    margin-right: 4px;
+    opacity: 0;
+    background-image: url('img/palitra_gray.png'); background-size: contain; background-repeat: no-repeat;
+    border-radius: 50%;
+}
+.content:hover .paletButton {
+    opacity: 1;
+}
+.paletButton:hover{ 
+    cursor: pointer;
+    background-image: url('img/palitra_white.png'); background-size: contain; background-repeat: no-repeat;
+}
+
+
+.palitra { 
+    display: none;
+    width: fit-content;
+}
+.color {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+
+
