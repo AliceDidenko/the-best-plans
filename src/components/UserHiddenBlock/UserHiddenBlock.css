@@ -1,0 +1,15 @@
+#userHiddenBlock {
+    padding: .6em 0;
+}
+
+.input.user:hover, .input.user:focus {
+    border: solid 2px rgba(72, 185, 255, 0.58);
+}
+
+.userItem-name {
+    font-size: large;
+}
+.input.user {
+    margin-left: 1em;
+    padding-left: 6px;
+}

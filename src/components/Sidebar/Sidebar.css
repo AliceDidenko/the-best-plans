@@ -1,5 +1,5 @@
 #sidebar {
-    min-width: 10em;
+    
     background-color: var(--color-white);
     padding: .6em;
 
@@ -13,6 +13,10 @@
 .items {
     width: fit-content;
 }
-#sortSelecter {
-    border-top: solid 2px var(--color-dark);
+.borderbottom {
+    border-bottom: solid 2px var(--color-dark);
+}
+
+#form {
+    margin: auto;
 }

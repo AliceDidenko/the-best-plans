@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './ContentCategory.css'
 import Check from '../Check/Check'
 import Input from '../Input/Input'
 import PaletButton from '../PaletButton/PaletButton'
+import Palette from '../Palette/Palette'
 //Number(new Date())
 
-const ContentCategory = ({ doingCategoryList, title,onclickColor, style, onclickState, onclickDelete, onclickCreate,onChangeValueInput, rank}) => {
+const ContentCategory = ({  doingCategoryList, title, onclickColor, style, 
+                            onclickState, onclickDelete, onclickCreate,onChangeValueInput, rank}) => {
     //console.log('render ContentCategory')
     const doingList = doingCategoryList.filter((elem) => elem.category === title)
     const content = doingList[0].doings || []
@@ -15,7 +17,7 @@ const ContentCategory = ({ doingCategoryList, title,onclickColor, style, onclick
             className ='doing'
         >
             <Check typeCheck='state' state={doing.status} onclick={()=>onclickState(title, doing.id, index)}/>
-            <Input text={doing.name} onChangeValue={onChangeValueInput} name='name' rank={rank} rankD={doing.rankImpo} classes={'input doings'} placeholder={"новое дело"} />
+            <Input text={doing.name} onChangeValue={e=>onChangeValueInput(e, rank, doing.rankImpo)} name='name' rank={rank} rankD={doing.rankImpo} classes={'input doings'} placeholder={"новое дело"} />
             <Check typeCheck='deleteDoing' onclick={()=>onclickDelete('doing', doing.rankImpo)}/>
         </div>
     })
@@ -47,12 +49,18 @@ const ContentCategory = ({ doingCategoryList, title,onclickColor, style, onclick
 
     //title = (title === '')? 'Дела': title
 
+    const [existPalette,  setExistPalette] = useState(false)
+    const changeVisibleColor = () => {
+        setExistPalette(!existPalette)
+    }
+
     return(
         <div className='content contentCategory'>
-            <div className='elem contentCategoryTtl' style={style}>
-                <Input text={title} onChangeValue={onChangeValueInput} name='category' rank={rank} classes={'input titels'} placeholder={"Категория"} style={style} />
-                <PaletButton classes='paletButton' cardRank={rank} onclick={()=>onclickColor(rank)}/>
+            <div className='elem contentCategoryTtl' style={style} id={'contentCategoryTtl_c'+rank}>
+                <Input text={title} onChangeValue={e=>onChangeValueInput(e, rank)} name='category' rank={rank} classes={'input titels'} placeholder={"Категория"} style={style} />
+                <PaletButton classes='paletButton' id={'paletButton_c'+rank} cardRank={rank} onclick={()=>changeVisibleColor(rank)}/>
                 <Check typeCheck='deleteTitle' onclick={()=>onclickDelete('category', rank)}/>
+                {existPalette && <Palette classes='paletteBox' onclickColor={onclickColor} changeVisibleColor={changeVisibleColor} rank={rank}/>}
             </div>
             <div className='elem contentCategoryBox'>
                 {contentElems}

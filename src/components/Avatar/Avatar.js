@@ -1,6 +1,6 @@
 import React from 'react';
 import './Avatar.css';
-import user from '../../user.js'
+
 // Avatars
 import anubis from "../../img_avatars/anubis.png"
 import cat from "../../img_avatars/cat.png"
@@ -16,7 +16,7 @@ import unicorn from "../../img_avatars/unicorn.png"
 import vegetable from "../../img_avatars/vegetable.png"
 
 
-const Avatar = ({className}) => {
+const Avatar = ({user, className, onclick}) => {
     const avatars = [
         ["anubis",      {anubis}],
         ["cat",         {cat}],
@@ -37,9 +37,7 @@ const Avatar = ({className}) => {
     avatarSrc = avatarSrc[0][1][avatarSrc[0][0]]
 
  
-    return (<div id='img-avatar' className={className}>
-        <img className="avatar" src={avatarSrc} alt='avatar' title='user avatar'/>
-    </div>)
+    return (<img className={"avatar "+ className} src={avatarSrc} alt='avatar' title='user avatar' onClick={() => onclick()}/>)
 };
 
 export default Avatar;

@@ -3,3 +3,26 @@
   min-height: 100vh;
   max-height: fit-content;
 }
+
+#sidebar.sideBar {
+  min-width: 10em;
+  /*animation: sideBarWidth_out 1s 1;*/
+}
+#sidebar.fillWindow {
+  width: 20em;
+  animation: sideBarWidth_in 1s 1;
+}
+@keyframes sideBarWidth_in {
+  0% { width: 10em;}
+  100% { width: 20em;}
+}
+
+/*
+transition: -webkit-transform 1.5s linear;
+*/
+
+
+#main {
+  width: calc(100% - 10em);
+  min-width: 30em;
+}

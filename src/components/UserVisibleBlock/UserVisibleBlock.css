@@ -1,0 +1,17 @@
+#userVisibleBlock {
+    display: flex;
+    justify-content:space-between;
+    align-items:flex-end;
+
+    padding-bottom: 0.6em;
+}
+
+#userVisibleBlock.block {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    padding: .6em 0;
+
+    border: none;
+}

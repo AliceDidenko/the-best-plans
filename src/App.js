@@ -1,11 +1,26 @@
 import React, { useState } from 'react'
 //import doings from './userList'
-import Sidebar from './components/Sidebar/Sidebar';
-import Main from './components/Main/Main';
+import Sidebar from './components/Sidebar/Sidebar'
+import Main from './components/Main/Main'
 import './App.css'
-import doCategoryList from './doList';
+import doCategoryList from './doList'
+import user from './user.js'
+
 
 const App = () => {
+    /* Form visible */
+    const [formValue, setFormValue] = useState({name: '', login:''})
+    const changeSetFormValue = (x) => {
+        setFormValue({...formValue, [x.target.name]: x.target.value})
+    }
+
+    /* User visible */
+    const [userAuthorized, setUserAuthorized] = useState(true)
+    const changeUserAuthorized = () => setUserAuthorized(!userAuthorized)
+    const changeUserRegistration = () => setUserAuthorized(!userAuthorized)
+
+    const [visibleUserHiddenBlock, setVisibleUserHiddenBlock] = useState(false)
+    const changeVisibleUserHiddenBlock = () => setVisibleUserHiddenBlock(!visibleUserHiddenBlock)
 
     /* SortSelecter state */
     const [idSelected, setIdSelected] = useState('0')
@@ -118,23 +133,17 @@ const App = () => {
 
 
     /* Input state */
-    const changeValueTitle = (x, r) => {
-        const doingCategoryListCopy = doingCategoryList.map( c => {
-            if(c.rank === r) {
-                return {
-                    ...c,
-                    [x.target.name]: x.target.value
-                }
-            }
-            return c
-        })
-        setCardList(doingCategoryListCopy)
+    /* for user */
+    const [userData, setUserData] = useState(user)
+    const changeValueUser = (x) => {
+        setUserData({...userData, [x.target.name]: x.target.value})
     }
+    /* for doList */
     const changeValueInput = (x, rc, ri=false) => {
         const doingCategoryListCopy = doingCategoryList.map( c => {
             let newCat = c
-
-            if(c.rank === rc) {  
+            
+            if(c.rank === rc) { 
                 if(ri) {
                     newCat.doings = c.doings.map(d => { 
                         // eslint-disable-next-line no-unused-expressions
@@ -142,7 +151,13 @@ const App = () => {
                         ? {...d, [x.target.name]: x.target.value}
                         : d
                     })
-                } else newCat[x.target.name]= x.target.value
+                } else {
+                    newCat[x.target.name]= x.target.value
+                    newCat.doings = c.doings.map(d => { 
+                        d.category = x.target.value
+                        return d
+                    })
+                } 
                 //console.log(x.target)
             }
             return newCat
@@ -187,13 +202,33 @@ const App = () => {
     }
 
     /* Color state */
-    const changeClickColor = () => {}
+    const changeClickColor = (color, r) => {
+        setCardList(
+            doingCategoryList.map(c => {
+                const newC = c
+                if((c.rank === r)) {
+                    newC.color = color
+                }
+                return newC
+            })
+        )
+    }
     
     return(
         <div id='app'>
-            <Sidebar idSelected={idSelected} changeIdSelected={changeIdSelected}/>
-            <Main    idSelected={idSelected} StateDoing={StateDoing} doingCategoryList={doingCategoryList} onclickColor={changeClickColor}
-                                                                    onChangeValueTitle={changeValueTitle}
+            <Sidebar idSelected={idSelected} changeIdSelected={changeIdSelected} 
+                                            user={userData} 
+                                            userAuthorized={userAuthorized}
+                                            onChangeValueInput={changeValueUser}
+                                            visibleUserHiddenBlock={visibleUserHiddenBlock}
+                                            changeVisibleUserHiddenBlock={changeVisibleUserHiddenBlock}
+                                            changeUserAuthorized={changeUserAuthorized}
+                                            changeSetFormValue={changeSetFormValue}
+                                            formValue={formValue}
+                                            changeUserRegistration={changeUserRegistration}/>
+            {userAuthorized &&
+            <Main    idSelected={idSelected} StateDoing={StateDoing} doingCategoryList={doingCategoryList} 
+                                                                    onclickColor={changeClickColor}
                                                                     onChangeValueInput={changeValueInput}
                                                                     onclickDelete={deleteElement}
                                                                     onclickCreate={createElement}
@@ -207,7 +242,7 @@ const App = () => {
                                             dragLeaveHandler_doings={dragLeaveHandler_doings} 
                                             dragOverHandler_doings={dragOverHandler_doings}
                                             dragDropHandler_doings={dragDropHandler_doings}/>
-            
+            }
         </div>
     );
 }

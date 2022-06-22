@@ -4,6 +4,3 @@
     border: 2px solid var(--color-dark);
     width: 60px;
 }
-.avatar:hover {
-    cursor: pointer;
-}

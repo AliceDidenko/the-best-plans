@@ -30,7 +30,7 @@ const ContentState = ({ doingCategoryList, title, status, style,
         >
             <div className='rankNumber'>{Number(doing.rankState)+1}.</div>
             <Check typeCheck='state' state={doing.status} onclick={()=>onclickState(doing.category, doing.id, index)}/>
-            <Input text={doing.name} onChangeValue={onChangeValueInput} name='name' rank={rank} rankD={doing.rankImpo} classes={'input doings text'} placeholder={"новое дело"} />
+            <Input text={doing.name} onChangeValue={e=>onChangeValueInput(e, rank, doing.rankImpo)} name='name' rank={rank} rankD={doing.rankImpo} classes={'input doings text'} placeholder={"новое дело"} />
             <Check typeCheck='deleteDoing' onclick={()=>onclickDelete('doing', doing.rankImpo)}/>
         </div>
     })

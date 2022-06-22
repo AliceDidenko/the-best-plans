@@ -1,0 +1,16 @@
+.button {
+    width: fit-content;
+    padding: .3em .6em;
+    border-radius: 15px;
+/*
+    -webkit-box-shadow: 4px 4px 8px 0px var(--color-shadow);
+    -moz-box-shadow: 4px 4px 8px 0px var(--color-shadow);
+    box-shadow: 4px 4px 8px 0px var(--color-shadow);
+*/
+    background-color: gray;
+    color: white;
+}
+.button:hover{ 
+    cursor: pointer;
+    background-color: var(--color-c6);
+}
