@@ -16,11 +16,19 @@ const App = () => {
 
     /* User visible */
     const [userAuthorized, setUserAuthorized] = useState(true)
-    const changeUserAuthorized = () => setUserAuthorized(!userAuthorized)
+    const changeUserAuthorized = () => { 
+        setUserAuthorized(!userAuthorized)
+        setVisibleUserHiddenBlock(!visibleUserHiddenBlock)
+        //document.getElementById('sidebar').style.animation = 'sideBarWidth_out 1s 0'
+    }
     const changeUserRegistration = () => setUserAuthorized(!userAuthorized)
 
     const [visibleUserHiddenBlock, setVisibleUserHiddenBlock] = useState(false)
     const changeVisibleUserHiddenBlock = () => setVisibleUserHiddenBlock(!visibleUserHiddenBlock)
+    const [visibleMinAvatars, setVisibleMinAvatars] = useState(false)
+    const changeVisibleMinAvatars = () => {
+        setVisibleMinAvatars(!visibleMinAvatars)
+    }
 
     /* SortSelecter state */
     const [idSelected, setIdSelected] = useState('0')
@@ -138,6 +146,14 @@ const App = () => {
     const changeValueUser = (x) => {
         setUserData({...userData, [x.target.name]: x.target.value})
     }
+    const changeValueUserAva = (newAva) => {
+        setUserData({
+            name: userData.name,
+            login: userData.login,
+            avatar: newAva,
+            id: userData.id
+        })
+    }
     /* for doList */
     const changeValueInput = (x, rc, ri=false) => {
         const doingCategoryListCopy = doingCategoryList.map( c => {
@@ -225,7 +241,10 @@ const App = () => {
                                             changeUserAuthorized={changeUserAuthorized}
                                             changeSetFormValue={changeSetFormValue}
                                             formValue={formValue}
-                                            changeUserRegistration={changeUserRegistration}/>
+                                            changeUserRegistration={changeUserRegistration}
+                                            changeVisibleMinAvatars={changeVisibleMinAvatars}
+                                            visibleMinAvatars={visibleMinAvatars}
+                                            changeValueUserAva={changeValueUserAva}/>
             {userAuthorized &&
             <Main    idSelected={idSelected} StateDoing={StateDoing} doingCategoryList={doingCategoryList} 
                                                                     onclickColor={changeClickColor}

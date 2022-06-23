@@ -2,14 +2,43 @@
     padding: .6em 0;
 }
 
-.input.user:hover, .input.user:focus {
+.input.user.inputChangeble:hover, .input.user.inputChangeble:focus {
     border: solid 2px rgba(72, 185, 255, 0.58);
 }
 
+.userItemMagrin {
+    padding-top: 0.6em;
+}
 .userItem-name {
     font-size: large;
 }
 .input.user {
     margin-left: 1em;
     padding-left: 6px;
+    background-color: var(--color-gray1);
 }
+
+.userItem-name .forInput { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.forInput .input.user {
+    width: 7em;
+}
+
+
+.rotateImgDown {
+    /*animation: spin .1s linear 1;*/
+    transform:rotate(-90deg);
+}
+/*
+@keyframes spin{
+	from{
+        transform:rotate(0deg)
+    }
+	to{
+        transform:rotate(-90deg)
+    }	
+}
+*/

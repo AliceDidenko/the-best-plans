@@ -1,0 +1,18 @@
+.avatarButton {
+    width: 1em;
+    height: 1em;/*
+    margin-left: 4px;
+    margin-right: 4px;*/
+    background-image: url('img/onCheckList_gray.png'); background-size: contain; background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.avatarButton:hover{ 
+    cursor: pointer;
+    background-image: url('img/onCheckList_blue.png'); background-size: contain; background-repeat: no-repeat;
+}
+
+
+
+
+

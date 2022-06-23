@@ -34,6 +34,7 @@ const Avatar = ({user, className, onclick}) => {
     let avatarSrc = avatars.filter(function(elem) {
         return elem[0] === user.avatar;
     });
+    
     avatarSrc = avatarSrc[0][1][avatarSrc[0][0]]
 
  

@@ -7,7 +7,11 @@ import Form from '../Form/Form'
 import LK from '../LK/LK'
 
 
-const Sidebar = ({idSelected, changeIdSelected, changeSetFormValue, formValue, user,userAuthorized, onChangeValueInput, changeUserAuthorized, changeVisibleUserHiddenBlock, visibleUserHiddenBlock, changeUserRegistration}) => {
+const Sidebar = ({  idSelected, changeIdSelected, changeSetFormValue, 
+                    formValue, user, userAuthorized, onChangeValueInput, 
+                    changeUserAuthorized, changeVisibleUserHiddenBlock, 
+                    visibleUserHiddenBlock, changeUserRegistration,
+                    changeVisibleMinAvatars, visibleMinAvatars, changeValueUserAva}) => {
     const classWidth = userAuthorized? 'sideBar': 'fillWindow'
     
     return (<div id='sidebar' className={classWidth}>
@@ -17,8 +21,8 @@ const Sidebar = ({idSelected, changeIdSelected, changeSetFormValue, formValue, u
         
         <LK className='items'>
             <UserVisibleBlock className='inLK borderbottom' user={user} changeUserAuthorized={changeUserAuthorized} userAuthorized={userAuthorized} changeVisibleUserHiddenBlock={changeVisibleUserHiddenBlock} changeUserRegistration={changeUserRegistration}/>
-            {visibleUserHiddenBlock &&
-                <UserHiddenBlock  className='inLK borderbottom' user={user} onChangeValueInput={onChangeValueInput} userAuthorized={userAuthorized}/>
+            {visibleUserHiddenBlock && userAuthorized &&
+                <UserHiddenBlock  className='inLK borderbottom' user={user} onChangeValueInput={onChangeValueInput} changeVisibleMinAvatars={changeVisibleMinAvatars} changeValueUserAva={changeValueUserAva}  visibleMinAvatars={visibleMinAvatars} />
             }
         </LK>
         
