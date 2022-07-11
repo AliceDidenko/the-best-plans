@@ -10,7 +10,8 @@ import Main from '../../components/Main/Main'
 
 import { initializeParse } from '@parse/react'
 import {keys} from '../../back4app'
-const appParse = initializeParse(
+//const appParse = 
+initializeParse(
     process.env.REACT_APP_SERVER_URL,     //'YOUR_SERVER_URL',
     process.env.REACT_APP_BACK4APP_APPLICATION_ID, //'YOUR_APPLICATION_ID',
     process.env.REACT_APP_BACK4APP_JAVASCRIPT_KEY  //'YOUR_JAVASCRIPT_KEY'
@@ -64,7 +65,7 @@ const HomePage = ({}) => {
         //newUser.set("username", 'formValue.name')
         //newUser.set("password", 'formValue.login')
         console.log(newUser.getUsername())
-        
+        /*
         return await newUser.signUp()
         .then((createdUser) => {
         // Parse.User.signUp returns the already created ParseUser object if successful
@@ -79,7 +80,7 @@ const HomePage = ({}) => {
             alert("Error: " + error.code + " " + error.message)
             return false;
         })
-        
+        */
     }
 
     /* User visible */
