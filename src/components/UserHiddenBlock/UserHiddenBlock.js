@@ -33,7 +33,8 @@ const UserHiddenBlock = ({user, className, onChangeValueInput, changeVisibleMinA
                     <Input  text={user.avatar}  
                         name='avatar' 
                         classes={'input user inputUnChangeble'} 
-                        placeholder={"Аватар"}/>
+                        placeholder={"Аватар"}
+                        readonly={true}/>
                     <AvatarButton classes={'avatarButton' + rotateClass} id={'avatarButton'} onclick={()=>changeVisibleMinAvatars()}/>
                 </div>
             </div>
