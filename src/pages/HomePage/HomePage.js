@@ -56,15 +56,28 @@ const HomePage = ({}) => {
         }
 
         var newUser = new Parse.User()
-        newUser.setUsername("admin", null)
-        newUser.setPassword("password", null)
-        newUser.save()
+        
         //newUser.set("doList", [])
         //newUser.set("id", String(Number(new Date()) + '_' + Math.floor(Math.random()*1000) + ''))
         //newUser.set("avatar", ra)
-        //newUser.set("username", 'formValue.name')
-        //newUser.set("password", 'formValue.login')
-        console.log(newUser.getUsername())
+        newUser.set("username", 'formValue.name')
+        newUser.set("password", 'formValue.login')
+        newUser.save()
+        console.log(newUser.getUsername(), newUser.username)
+        return await newUser.signUp()
+        .then((createdUser) => {
+          alert(
+            "Success!",
+            `User ${createdUser.get("username")} was successfully created!`
+          );
+          return true;
+        })
+        .catch((error) => {
+          alert("Error: " + error.code + " " + error.message);
+          return false;
+        });
+
+
         /*
         return await newUser.signUp()
         .then((createdUser) => {
