@@ -64,7 +64,7 @@ export default [
             },
             {
                 id: 'id15',
-                name: 'тема аспирантуры',
+                name: 'тема в аспирантуру',
                 category: 'Научка',
                 rankImpo: '0',
                 rankTime: '2',
@@ -102,7 +102,7 @@ export default [
         ]
     },
     {
-        category: 'Работа IT',
+        category: 'Работа',
         rank: '4',
         color: '--color-c6',
         doings: [
@@ -146,7 +146,7 @@ export default [
         doings: [
             {
                 id: 'id8',
-                name: 'Акварель',
+                name: 'акварель',
                 category: 'Искусство',
                 rankImpo: '13',
                 rankTime: '6',
