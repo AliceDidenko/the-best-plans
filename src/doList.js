@@ -64,7 +64,7 @@ export default [
             },
             {
                 id: 'id15',
-                name: 'трудоустройство',
+                name: 'тема аспирантуры',
                 category: 'Научка',
                 rankImpo: '0',
                 rankTime: '2',
@@ -102,7 +102,7 @@ export default [
         ]
     },
     {
-        category: 'Работа',
+        category: 'Работа IT',
         rank: '4',
         color: '--color-c6',
         doings: [
@@ -146,7 +146,7 @@ export default [
         doings: [
             {
                 id: 'id8',
-                name: 'Тараканчики',
+                name: 'Акварель',
                 category: 'Искусство',
                 rankImpo: '13',
                 rankTime: '6',
@@ -156,7 +156,7 @@ export default [
             },
             {
                 id: 'id9',
-                name: 'рисунок СБ',
+                name: 'эпоксидка',
                 category: 'Искусство',
                 rankImpo: '3',
                 rankTime: '12',
@@ -166,7 +166,7 @@ export default [
             },
             {
                 id: 'id11',
-                name: 'мозаика',
+                name: 'римская мозаика',
                 category: 'Искусство',
                 rankImpo: '14',
                 rankTime: '9',
@@ -177,7 +177,7 @@ export default [
         ]
     },
     {
-        category: '5',
+        category: 'фильмы',
         rank: '6',
         color: '--color-c5',
         doings: []
@@ -189,7 +189,7 @@ export default [
         doings: [
             {
                 id: 'id13',
-                name: 'Туалетка',
+                name: 'батарейки',
                 category: 'Покупки',
                 rankImpo: '15',
                 rankTime: '11',
